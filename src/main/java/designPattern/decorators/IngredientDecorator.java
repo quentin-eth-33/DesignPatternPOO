@@ -2,10 +2,10 @@ package designPattern.decorators;
 
 import designPattern.gateaux.Gateaux;
 
-public class IngredientsDecorator implements Gateaux {
+public class IngredientDecorator implements Gateaux {
     protected Gateaux gateaux;
 
-    public IngredientsDecorator(Gateaux gateaux) {
+    public IngredientDecorator(Gateaux gateaux) {
         this.gateaux = gateaux;
     }
 

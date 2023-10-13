@@ -2,7 +2,7 @@ package designPattern.decorators;
 
 import designPattern.gateaux.Gateaux;
 
-public class Vanille extends IngredientsDecorator {
+public class Vanille extends IngredientDecorator {
 
     public Vanille(Gateaux gateaux) {
         super(gateaux);
@@ -10,11 +10,11 @@ public class Vanille extends IngredientsDecorator {
 
     @Override
     public String getDescription() {
-        return gateaux.getDescription() + "| Vanille";
+        return gateaux.getDescription() + "| "+Ingredient.VANILLE.getNom();
     }
 
     @Override
     public double cout() {
-        return gateaux.cout() + 3.0;
+        return gateaux.cout() +  Ingredient.VANILLE.getCout();
     }
 }
