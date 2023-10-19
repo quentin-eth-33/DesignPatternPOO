@@ -1,12 +1,6 @@
 package designPattern.boulangerie;
 
-import designPattern.decorators.Chantilly;
-import designPattern.decorators.Chocolat;
-import designPattern.decorators.Noisette;
-import designPattern.fabricationGateaux.ChouxBuilder;
-import designPattern.fabricationGateaux.GateauxFactory;
-import designPattern.gateaux.Choux;
-import designPattern.gateaux.Gateaux;
+import designPattern.composite.*;
 
 public class Boulangerie {
     public static void main(String[] args) {
@@ -23,7 +17,7 @@ public class Boulangerie {
 
         Gateaux c = GateauxFactory.creerChouxAvecIngredients(true, true, true, true, false);
         System.out.println("Commande : " + c.getDescription());
-        */
+
 
         StockGateaux stock = new StockGateaux(10);
 
@@ -35,6 +29,19 @@ public class Boulangerie {
 
         // Simulation de la diminution du stock
         stock.setStockActuel(5);
+        */
+
+        GateauxComposite gateau = new GateauxComposite();
+        gateau.ajouterComposant(new ChouxComposite());
+        gateau.ajouterComposant(new AbricotComposite());
+        gateau.ajouterComposant(new MeringueComposite());
+
+        double coutTotal = gateau.cout();
+        String descriptionTotale = gateau.getDescription();
+
+        System.out.println("Description totale : " + descriptionTotale);
+        System.out.println("Coût total : " + coutTotal);
+
     }
 
 }
