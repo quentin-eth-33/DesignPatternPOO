@@ -8,8 +8,12 @@ public class Vendeur implements VendeurObserver {
     }
 
     @Override
-    public void update() {
-        System.out.println("Vendeur " + nom + " déclenche la fabrication de gâteaux !");
-        // Logique pour déclencher la fabrication de gâteaux
+    public void updateTarte() {
+        System.out.println("Vendeur " + nom + " déclenche la fabrication de tarte !");
+    }
+
+    @Override
+    public void updateChoux() {
+        System.out.println("Vendeur " + nom + " déclenche la fabrication de choux !");
     }
 }

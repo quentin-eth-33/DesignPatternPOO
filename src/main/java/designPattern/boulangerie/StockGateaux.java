@@ -5,11 +5,16 @@ import java.util.List;
 
 public class StockGateaux {
     private List<VendeurObserver> observers = new ArrayList<>();
-    private int stockActuel;
-    private int seuilAlerte;
 
-    public StockGateaux(int seuilAlerte) {
-        this.seuilAlerte = seuilAlerte;
+
+    private int stockActuelChoux;
+    private int stockActuelTarte;
+    private int seuilAlerteTarte;
+    private int seuilAlerteChoux;
+
+    public StockGateaux(int seuilAlerteChoux, int seuilAlertTarte) {
+        this.seuilAlerteChoux = seuilAlerteChoux;
+        this.seuilAlerteTarte = seuilAlertTarte;
     }
 
     public void addObserver(VendeurObserver observer) {
@@ -20,16 +25,37 @@ public class StockGateaux {
         observers.remove(observer);
     }
 
-    public void setStockActuel(int stockActuel) {
-        this.stockActuel = stockActuel;
-        if (stockActuel < seuilAlerte) {
-            notifyObservers();
+    public void setStockActuelChoux(int stockActuelChoux) {
+        this.stockActuelChoux = stockActuelChoux;
+        if (stockActuelChoux < seuilAlerteChoux) {
+            notifyObserversChoux();
         }
     }
 
-    public void notifyObservers() {
+    public void setStockActuelTarte(int stockActuelTarte) {
+        this.stockActuelTarte = stockActuelTarte;
+        if (stockActuelTarte < this.seuilAlerteTarte) {
+            notifyObserversTarte();
+        }
+    }
+
+    public int getStockActuelChoux(){
+        return stockActuelChoux;
+    }
+
+    public int getStockActuelTarte(){
+        return stockActuelTarte;
+    }
+
+    public void notifyObserversTarte() {
         for (VendeurObserver observer : observers) {
-            observer.update();
+            observer.updateTarte();
+        }
+    }
+
+    public void notifyObserversChoux() {
+        for (VendeurObserver observer : observers) {
+            observer.updateChoux();
         }
     }
 }

@@ -1,5 +1,6 @@
 package designPattern.boulangerie;
 
 public interface VendeurObserver {
-    void update();
+    void updateTarte();
+    void updateChoux();
 }
