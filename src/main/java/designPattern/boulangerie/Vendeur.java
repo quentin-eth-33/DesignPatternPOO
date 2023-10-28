@@ -8,12 +8,14 @@ public class Vendeur implements VendeurObserver {
     }
 
     @Override
-    public void updateTarte() {
+    public void updateTarte(StockGateaux stock) {
         System.out.println("Vendeur " + nom + " déclenche la fabrication de tarte !");
+        stock.setStockActuelTarte(stock.getStockActuelTarte()+10);
     }
 
     @Override
-    public void updateChoux() {
+    public void updateChoux(StockGateaux stock) {
         System.out.println("Vendeur " + nom + " déclenche la fabrication de choux !");
+        stock.setStockActuelChoux(stock.getStockActuelChoux()+10);
     }
 }

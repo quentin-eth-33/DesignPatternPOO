@@ -3,37 +3,16 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 import designPattern.composite.*;
+import designPattern.decorators.Abricot;
+import designPattern.decorators.Meringue;
+import designPattern.decorators.Noisette;
+import designPattern.fabricationGateaux.ChouxBuilder;
 import designPattern.fabricationGateaux.GateauxFactory;
+import designPattern.gateaux.Choux;
 import designPattern.gateaux.Gateaux;
 
 public class Boulangerie {
     public static void main(String[] args) {
-        /*
-        ChouxBuilder chouxBuilder = new ChouxBuilder();
-        Gateaux choux = chouxBuilder.avecChantilly().avecChocolat().avecAmandeGrillee().creerNouveauGateaux();
-        System.out.println("Commande : " + choux.getDescription());
-        System.out.println("Cout : " + choux.cout());
-        chouxBuilder.resetBuilder();
-
-        choux = chouxBuilder.avecNoisette().avecVanille().creerNouveauGateaux();
-        System.out.println("Commande : " + choux.getDescription());
-        System.out.println("Cout : " + choux.cout());
-
-        Gateaux c = GateauxFactory.creerChouxAvecIngredients(true, true, true, true, false);
-        System.out.println("Commande : " + c.getDescription());
-
-        GateauxComposite gateau = new GateauxComposite();
-        gateau.ajouterComposant(new ChouxComposite());
-        gateau.ajouterComposant(new AbricotComposite());
-        gateau.ajouterComposant(new MeringueComposite());
-
-        double coutTotal = gateau.cout();
-        String descriptionTotale = gateau.getDescription();
-
-        System.out.println("Description totale : " + descriptionTotale);
-        System.out.println("Coût total : " + coutTotal);
-        */
-
         Scanner scanner = new Scanner(System.in);
         StockGateaux stock = new StockGateaux(10, 5);
 

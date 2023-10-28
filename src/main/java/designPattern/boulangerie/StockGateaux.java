@@ -28,14 +28,14 @@ public class StockGateaux {
     public void setStockActuelChoux(int stockActuelChoux) {
         this.stockActuelChoux = stockActuelChoux;
         if (stockActuelChoux < seuilAlerteChoux) {
-            notifyObserversChoux();
+            notifyObserversChoux(this);
         }
     }
 
     public void setStockActuelTarte(int stockActuelTarte) {
         this.stockActuelTarte = stockActuelTarte;
         if (stockActuelTarte < this.seuilAlerteTarte) {
-            notifyObserversTarte();
+            notifyObserversTarte(this);
         }
     }
 
@@ -47,15 +47,15 @@ public class StockGateaux {
         return stockActuelTarte;
     }
 
-    public void notifyObserversTarte() {
+    public void notifyObserversTarte(StockGateaux stock) {
         for (VendeurObserver observer : observers) {
-            observer.updateTarte();
+            observer.updateTarte(stock);
         }
     }
 
-    public void notifyObserversChoux() {
+    public void notifyObserversChoux(StockGateaux stock) {
         for (VendeurObserver observer : observers) {
-            observer.updateChoux();
+            observer.updateChoux(stock);
         }
     }
 }

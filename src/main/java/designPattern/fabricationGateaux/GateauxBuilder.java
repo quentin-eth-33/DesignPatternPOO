@@ -1,4 +1,3 @@
-
 package designPattern.fabricationGateaux;
 import designPattern.gateaux.Gateaux;
 
